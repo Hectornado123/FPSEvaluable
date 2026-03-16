@@ -95,7 +95,12 @@ public class GunSystem : MonoBehaviour
                 HealthEnemy healthEnemy = hit.collider.GetComponent<HealthEnemy>();
                 healthEnemy.TakeDamage(damage);
             }
+           Destruible1 trigger = hit.collider.GetComponent<Destruible1>();
 
+            if (trigger != null)
+            {
+                trigger.Activar();
+            }
         }
 
 
