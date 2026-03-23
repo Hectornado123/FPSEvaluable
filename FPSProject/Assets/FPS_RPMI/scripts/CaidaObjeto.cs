@@ -2,17 +2,27 @@ using UnityEngine;
 
 public class CaidaObjeto : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true; // empieza suspendido
+
+        if (rb != null)
+        {
+            rb.isKinematic = true; // empieza suspendido
+        }
+        else
+        {
+            Debug.LogError("No hay Rigidbody en " + gameObject.name);
+        }
     }
 
     public void ActivarFisicas()
     {
-        rb.isKinematic = false; // ahora cae
+        if (rb != null)
+        {
+            rb.isKinematic = false; // ahora cae
+        }
     }
 }

@@ -80,7 +80,6 @@ public class GunSystem : MonoBehaviour
 
     void Shoot()
     {
-
         Vector3 direction = fpsCam.transform.forward;
 
         direction.x += Random.Range(-spread, spread);
@@ -89,21 +88,26 @@ public class GunSystem : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, direction, out hit, range, impactLayer))
         {
             Debug.Log(hit.collider.name);
+
             if (hit.collider.CompareTag("enemy"))
             {
-
                 HealthEnemy healthEnemy = hit.collider.GetComponent<HealthEnemy>();
                 healthEnemy.TakeDamage(damage);
             }
-           Destruible1 trigger = hit.collider.GetComponent<Destruible1>();
 
-            if (trigger != null)
+            if (hit.collider.CompareTag("Esfera"))
             {
-                trigger.Activar();
+                // Buscar el script destruible
+                Destruible1 destruible = hit.collider.GetComponent<Destruible1>();
+
+                if (destruible != null)
+                {
+                    destruible.Activar();
+                }
+
+                Destroy(hit.collider.gameObject);
             }
         }
-
-
     }
 
 
