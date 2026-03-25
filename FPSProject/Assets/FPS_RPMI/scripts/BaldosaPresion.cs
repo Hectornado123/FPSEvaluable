@@ -3,28 +3,49 @@ using UnityEngine;
 public class BaldosaPresion : MonoBehaviour
 {
     [SerializeField] GameObject objetoInvisible;
+    [SerializeField] float alturaSubida = 5f; // 5 metros
+    [SerializeField] float velocidad = 3f;
 
     int objetosEncima = 0;
+
+    Vector3 posicionInicial;
+    Vector3 posicionSubida;
 
     void Start()
     {
         if (objetoInvisible != null)
         {
-            objetoInvisible.SetActive(false);
+            posicionInicial = objetoInvisible.transform.position;
+            posicionSubida = posicionInicial + Vector3.up * alturaSubida;
+        }
+    }
+
+    void Update()
+    {
+        if (objetoInvisible == null) return;
+
+        if (objetosEncima > 0)
+        {
+            objetoInvisible.transform.position = Vector3.Lerp(
+                objetoInvisible.transform.position,
+                posicionSubida,
+                velocidad * Time.deltaTime
+            );
+        }
+        else
+        {
+            objetoInvisible.transform.position = Vector3.Lerp(
+                objetoInvisible.transform.position,
+                posicionInicial,
+                velocidad * Time.deltaTime
+            );
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        // Evita contar el propio collider de la baldosa
         if (other.isTrigger) return;
-
         objetosEncima++;
-
-        if (objetoInvisible != null)
-        {
-            objetoInvisible.SetActive(true);
-        }
     }
 
     void OnTriggerExit(Collider other)
@@ -32,15 +53,6 @@ public class BaldosaPresion : MonoBehaviour
         if (other.isTrigger) return;
 
         objetosEncima--;
-
-        if (objetosEncima <= 0)
-        {
-            objetosEncima = 0;
-
-            if (objetoInvisible != null)
-            {
-                objetoInvisible.SetActive(false);
-            }
-        }
+        if (objetosEncima < 0) objetosEncima = 0;
     }
 }
