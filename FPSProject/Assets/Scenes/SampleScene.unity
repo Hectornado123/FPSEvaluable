@@ -582,6 +582,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615d4bcf3c42cf64f948f4d1028f2fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbrirPuerta
+--- !u!114 &594326227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594326216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e728df12304624ebedafca21d847b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbrirPuerta1
+  objetoQueSube: {fileID: 665915280}
+  altura: 20
 --- !u!1 &628392658
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,9 +677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb6b52c6541832a49a226d9a0c7c31e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Puerta
-  objetoAEliminar: {fileID: 594326216}
-  velocidad: 2
-  alturaMaxima: 20
 --- !u!65 &665915282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -980,11 +991,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089065184071125382, guid: 26ffc7e090d35004e8b77a0a63215f32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.01
       objectReference: {fileID: 0}
     - target: {fileID: 6089065184071125382, guid: 26ffc7e090d35004e8b77a0a63215f32, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.27
+      value: 15.97
       objectReference: {fileID: 0}
     - target: {fileID: 6089065184071125382, guid: 26ffc7e090d35004e8b77a0a63215f32, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1195,6 +1206,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6499212669163209395, guid: fda3dbb5124d1534880319bb30630f43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 594326222}
+    - targetCorrespondingSourceObject: {fileID: 6499212669163209395, guid: fda3dbb5124d1534880319bb30630f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 594326227}
   m_SourcePrefab: {fileID: 100100000, guid: fda3dbb5124d1534880319bb30630f43, type: 3}
 --- !u!1 &1008074137
 GameObject:
