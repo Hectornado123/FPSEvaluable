@@ -677,6 +677,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb6b52c6541832a49a226d9a0c7c31e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Puerta
+  objetoAEliminar: {fileID: 594326216}
+  velocidad: 1
+  alturaMaxima: 20
 --- !u!65 &665915282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -983,7 +986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5255370398572330903, guid: 26ffc7e090d35004e8b77a0a63215f32, type: 3}
       propertyPath: impactLayer.m_Bits
-      value: 64
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6089065184071125382, guid: 26ffc7e090d35004e8b77a0a63215f32, type: 3}
       propertyPath: m_LocalPosition.x
