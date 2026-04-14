@@ -89,10 +89,18 @@ public class GunSystem : MonoBehaviour
         {
             Debug.Log(hit.collider.name);
 
+            //if (hit.collider.CompareTag("enemy"))
+           // {
+              //  HealthEnemy healthEnemy = hit.collider.GetComponent<HealthEnemy>();
+               // healthEnemy.TakeDamage(damage);
+            //}
+
             if (hit.collider.CompareTag("enemy"))
             {
-                HealthEnemy healthEnemy = hit.collider.GetComponent<HealthEnemy>();
-                healthEnemy.TakeDamage(damage);
+
+                Robot robot = hit.collider.GetComponent<Robot>();
+                Destroy(hit.collider.gameObject);
+
             }
 
             if (hit.collider.CompareTag("Esfera"))

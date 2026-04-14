@@ -332,7 +332,7 @@ MonoBehaviour:
   ShootPoint: {fileID: 0}
   impactLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4294967295
   damage: 10
   range: 100
   spread: 0
