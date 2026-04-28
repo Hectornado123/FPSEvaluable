@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 5289158809329992354}
   - component: {fileID: 2451941534768844566}
   m_Layer: 6
-  m_Name: Sphere
+  m_Name: Orb
   m_TagString: Esfera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
