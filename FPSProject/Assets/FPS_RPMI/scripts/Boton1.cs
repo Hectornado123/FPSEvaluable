@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Boton : MonoBehaviour
+public class Boton1 : MonoBehaviour
 {
     public Transform cubo;          // El cubo que quieres mover
     public float altura = 2f;       // Distancia que sube (editable en inspector)
@@ -26,7 +26,7 @@ public class Boton : MonoBehaviour
     {
         enMovimiento = true;
 
-        Vector3 posicionFinal = posicionInicial + Vector3.up * altura;
+        Vector3 posicionFinal = posicionInicial + Vector3.right * altura;
 
         // Subir
         while (Vector3.Distance(cubo.position, posicionFinal) > 0.01f)

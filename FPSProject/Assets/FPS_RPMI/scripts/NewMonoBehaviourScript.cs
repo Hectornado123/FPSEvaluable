@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class ReemplazarObjeto : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject nuevoPrefab; // arrastras aquí el objeto nuevo desde el inspector
 
-    // Update is called once per frame
-    void Update()
+    public void Reemplazar(GameObject viejo)
     {
-        
+        Transform t = viejo.transform;
+
+        GameObject nuevo = Instantiate(nuevoPrefab, t.position, t.rotation, t.parent);
+        nuevo.transform.localScale = t.localScale;
+
+        Destroy(viejo);
     }
 }
