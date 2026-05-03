@@ -3,7 +3,7 @@ using UnityEngine;
 public class BaldosaPresion : MonoBehaviour
 {
     [SerializeField] GameObject objetoInvisible;
-    [SerializeField] float alturaSubida = 5f; // 5 metros
+    [SerializeField] float alturaSubida = 5000000000000000000f; // 5 metros
     [SerializeField] float velocidad = 3f;
 
     int objetosEncima = 0;
