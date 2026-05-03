@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,14 +28,15 @@ public class GunSystem : MonoBehaviour
     [Header("FeedBack references")]
     [SerializeField] GameObject impactEffect;
 
-    [Header(" Muzzle Flash")]
-    [SerializeField] GameObject muzzleFlashPrefab;
+    [Header(" VFX DISPARO LASER (ARRASTRAR AQUÍ)")]
+    [SerializeField] GameObject laserVFXPrefab;
+    [SerializeField] float laserVFXDuration = 0.2f;
 
     [Header(" Sonido disparo")]
     [SerializeField] AudioSource shootAudioSource;
     [SerializeField] AudioClip shootSound;
 
-    [Header(" Recoil C�mara")]
+    [Header(" Recoil Cámara")]
     [SerializeField] float recoilX = 2f;
     [SerializeField] float recoilY = 1f;
     [SerializeField] float recoilReturnSpeed = 5f;
@@ -65,7 +66,7 @@ public class GunSystem : MonoBehaviour
             StartCoroutine(ShootRoutine());
         }
 
-        //  RECOIL UPDATE (SIEMPRE ACTIVO)
+        // RECOIL
         targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, recoilReturnSpeed * Time.deltaTime);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, recoilSnappiness * Time.deltaTime);
         fpsCam.transform.localRotation = Quaternion.Euler(currentRotation);
@@ -91,18 +92,22 @@ public class GunSystem : MonoBehaviour
 
     void Shoot()
     {
-        //  SONIDO
+        // SONIDO
         if (shootAudioSource && shootSound)
             shootAudioSource.PlayOneShot(shootSound);
 
-        //  MUZZLE FLASH
-        if (muzzleFlashPrefab != null && ShootPoint != null)
+        //  VFX DISPARO LÁSER
+        if (laserVFXPrefab != null && ShootPoint != null)
         {
-            GameObject flash = Instantiate(muzzleFlashPrefab, ShootPoint.position, ShootPoint.rotation);
-            Destroy(flash, 0.15f);
+            GameObject laser = Instantiate(laserVFXPrefab, ShootPoint.position, ShootPoint.rotation);
+
+            // Orientar hacia donde dispara
+            laser.transform.forward = fpsCam.transform.forward;
+
+            Destroy(laser, laserVFXDuration);
         }
 
-        //  RECOIL
+        // RECOIL
         ApplyRecoil();
 
         Vector3 direction = fpsCam.transform.forward;
@@ -114,20 +119,20 @@ public class GunSystem : MonoBehaviour
         {
             Debug.Log(hit.collider.name);
 
-            //  IMPACTO
+            // IMPACTO
             if (impactEffect != null)
             {
                 GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(impact, 0.5f);
             }
 
-            //  ENEMIGO
+            // ENEMIGO
             if (hit.collider.CompareTag("enemy"))
             {
                 Destroy(hit.collider.gameObject);
             }
 
-            //  ORBE
+            // ORBE
             if (hit.collider.CompareTag("Esfera"))
             {
                 Destruible1 destruible = hit.collider.GetComponent<Destruible1>();
