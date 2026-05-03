@@ -9131,7 +9131,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 592a0c12a0edb394c8929c804d1f3275, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.669
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14604,6 +14604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1156944003}
   - component: {fileID: 1156944002}
+  - component: {fileID: 1156944004}
   m_Layer: 0
   m_Name: Laservfx
   m_TagString: Untagged
@@ -14736,6 +14737,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156944004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156944001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3953e1abeff264a8b5b1715ed636cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaserFX
+  line: {fileID: 1156944002}
+  impactVFX: {fileID: 0}
+  duration: 0.05
 --- !u!1 &1159642533
 GameObject:
   m_ObjectHideFlags: 0
@@ -22940,8 +22956,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 592a0c12a0edb394c8929c804d1f3275, type: 3}
     - target: {fileID: 5255370398572330903, guid: 26ffc7e090d35004e8b77a0a63215f32, type: 3}
+      propertyPath: laserVFXPrefab
+      value: 
+      objectReference: {fileID: 1156944001}
+    - target: {fileID: 5255370398572330903, guid: 26ffc7e090d35004e8b77a0a63215f32, type: 3}
       propertyPath: allowButtonHold
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5255370398572330903, guid: 26ffc7e090d35004e8b77a0a63215f32, type: 3}
       propertyPath: shootAudioSource
@@ -25882,7 +25902,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: fa78c27eb1ded9140b80cbdbb9910a34, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.707
+  m_Volume: 0.457
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -26663,6 +26683,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261483837494184797, guid: fec6180b02d7a33429b30719538c4df4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 285.82452
+      objectReference: {fileID: 0}
+    - target: {fileID: 261483837494184797, guid: fec6180b02d7a33429b30719538c4df4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 285.82452
+      objectReference: {fileID: 0}
+    - target: {fileID: 261483837494184797, guid: fec6180b02d7a33429b30719538c4df4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 285.82452
+      objectReference: {fileID: 0}
     - target: {fileID: 261483837494184797, guid: fec6180b02d7a33429b30719538c4df4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.73
