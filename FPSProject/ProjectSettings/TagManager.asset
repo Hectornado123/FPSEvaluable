@@ -8,6 +8,8 @@ TagManager:
   - enemy
   - Esfera
   - Puerta
+  - FxTemporaire
+  - Meta
   layers:
   - Default
   - TransparentFX
